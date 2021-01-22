@@ -13,7 +13,6 @@ namespace FOS\UserBundle\Doctrine;
 
 use Doctrine\Common\EventSubscriber;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
-Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManager;
@@ -67,7 +66,7 @@ class UserListener implements EventSubscriber
      *
      * @param LifecycleEventArgs $args
      */
-    public function preUpdate(PreUpdateEventArgs $args)
+    public function preUpdate(LifecycleEventArgs $args)
     {
         $object = $args->getObject();
         if ($object instanceof UserInterface) {
